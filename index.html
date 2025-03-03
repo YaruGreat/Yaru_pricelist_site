@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист художника</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav {
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .price-list {
+            list-style: none;
+            padding: 0;
+        }
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .price-list img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .price-list li:last-child {
+            border-bottom: none;
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #555;
+        }
+        .gallery {
+            display: flex;
+            overflow-x: scroll;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <header>Прайс-лист художника</header>
+    <nav>
+        <a href="#prices">Прайс</a>
+        <a href="#gallery">Галерея</a>
+    </nav>
+    <div class="container" id="prices">
+        <ul class="price-list">
+            <li><span>Скетч</span> <span>от $20</span> <img src="example1.jpg" alt="Пример"></li>
+            <li><span>Чёрно-белый рисунок</span> <span>от $40</span> <img src="example2.jpg" alt="Пример"></li>
+            <li><span>Цветной арт (без фона)</span> <span>от $60</span> <img src="example3.jpg" alt="Пример"></li>
+            <li><span>Цветной арт (с фоном)</span> <span>от $80</span> <img src="example4.jpg" alt="Пример"></li>
+            <li><span>Иллюстрация</span> <span>от $120</span> <img src="example5.jpg" alt="Пример"></li>
+        </ul>
+        <div class="contact">
+            Связаться: <a href="mailto:artist@example.com">artist@example.com</a>
+        </div>
+    </div>
+    <div class="container" id="gallery">
+        <h2>Галерея</h2>
+        <div class="gallery">
+            <img src="gallery1.jpg" alt="Artwork" onclick="openFullscreen(this.src)">
+            <img src="gallery2.jpg" alt="Artwork" onclick="openFullscreen(this.src)">
+            <img src="gallery3.jpg" alt="Artwork" onclick="openFullscreen(this.src)">
+        </div>
+    </div>
+    <div class="fullscreen" id="fullscreen" onclick="closeFullscreen()">
+        <img id="fullscreen-img">
+    </div>
+    <script>
+        function openFullscreen(src) {
+            document.getElementById('fullscreen-img').src = src;
+            document.getElementById('fullscreen').style.display = 'flex';
+        }
+        function closeFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
